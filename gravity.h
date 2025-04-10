@@ -3,6 +3,7 @@
 #include <utility>
 #include <cstdlib>
 #include <algorithm>
+#include <float.h>
 #include <vector>
 #include <cmath>
 #include <string>
@@ -23,6 +24,7 @@ struct object{
   double y_vel;
   double z_vel;
   double mass;
+  Color color;
 };
 
 std::vector<object> create_objects(const int count);
@@ -39,9 +41,9 @@ int wrap(const int value, const int min, const int max);
 void update(std::vector<object>& objects, const float y_scale, const float x_scale);
 
 void draw(const std::vector<object>& objects, const std::string method,
-const float x_scale, const float y_scale);
+const float x_scale, const float y_scale, const bool camera_track);
 
-Color custom(int i, int total);
+Color custom(float i, float total);
 
 std::pair<float,float> orbit_velocity(float central_mass, float radius, float x_diff, float y_diff);
 
@@ -53,3 +55,4 @@ void init_sort(std::vector<object>& objects, std::string sort_by);
 
 bool comp(object A, object B);
 
+void print_cheatsheet();
